@@ -1,0 +1,522 @@
+;#<FEEDBACK># ARM Linker, 5060750: Last Updated: Fri Nov 25 17:21:32 2022
+;VERSION 0.2
+;FILE adv_check_mode.o
+__asm___16_adv_check_mode_c_9741a236____REV16 <= USED 0
+__asm___16_adv_check_mode_c_9741a236____REVSH <= USED 0
+__asm___16_adv_check_mode_c_9741a236____RRX <= USED 0
+calib_lld_cancel <= USED 0
+calib_lld_init <= USED 0
+calib_lld_receive <= USED 0
+calib_lld_reset <= USED 0
+calib_lld_send <= USED 0
+calib_set_freq_config <= USED 0
+;FILE aes_cbc.o
+AES_cbc_decrypt <= USED 0
+AES_cbc_encrypt <= USED 0
+AES_convert_key <= USED 0
+AES_decrypt <= USED 0
+AES_encrypt <= USED 0
+AES_set_key <= USED 0
+aes_decrypt_data <= USED 0
+aes_encrypt_data <= USED 0
+aes_test <= USED 0
+;FILE app.o
+__asm___5_app_c_836484a2____REV16 <= USED 0
+__asm___5_app_c_836484a2____REVSH <= USED 0
+__asm___5_app_c_836484a2____RRX <= USED 0
+appm_create_per_sync_act <= USED 0
+ble_aes128_start <= USED 0
+ble_gap_get_peer_info <= USED 0
+ble_set_addr_type <= USED 0
+ble_set_diagport <= USED 0
+ble_set_ral <= USED 0
+ble_set_rlsv_addr_renew_time <= USED 0
+ble_set_wl <= USED 0
+gap_lecb_add_credit <= USED 0
+gap_lecb_conn_req <= USED 0
+gap_lecb_disconn_req <= USED 0
+gap_lecb_send <= USED 0
+gap_lepsm_register <= USED 0
+gap_lepsm_unregister <= USED 0
+l2cap_recv_data_direct_register <= USED 0
+l2cap_send_data_direct <= USED 0
+;FILE app_at.o
+__asm___8_app_at_c_9e062f09____REV16 <= USED 0
+__asm___8_app_at_c_9e062f09____REVSH <= USED 0
+__asm___8_app_at_c_9e062f09____RRX <= USED 0
+app_at_cmd_recv_handler <= USED 0
+app_at_init <= USED 0
+;FILE app_conn.o
+appm_conn_send_data <= USED 0
+appm_delete_conn_act <= USED 0
+;FILE app_mesh_info.o
+;FILE app_prf.o
+;FILE app_proj_event.o
+;FILE app_sec.o
+ble_sec_clr_fixed_ltk <= USED 0
+ble_sec_remove_bond <= USED 0
+ble_sec_send_paring_password <= USED 0
+ble_sec_send_security_req <= USED 0
+ble_sec_set_fixed_ltk <= USED 0
+ble_sec_start_bond <= USED 0
+ble_sec_start_enc_req <= USED 0
+bond_info_add <= USED 0
+gap_security_check_rand_ediv <= USED 0
+;FILE app_task.o
+;FILE attc.o
+;FILE attm.o
+attm_att_set_permission <= USED 0
+attm_is_bt16_uuid <= USED 0
+attm_is_bt32_uuid <= USED 0
+attm_svc_create_db_128 <= USED 0
+attm_svc_set_permission <= USED 0
+;FILE attm_db.o
+;FILE atts.o
+;FILE ble_simple_peripheral.o
+__asm___23_ble_simple_peripheral_c_4fde123a____REV16 <= USED 0
+__asm___23_ble_simple_peripheral_c_4fde123a____REVSH <= USED 0
+__asm___23_ble_simple_peripheral_c_4fde123a____RRX <= USED 0
+app_mesh_start_scan <= USED 0
+param_timer_func <= USED 0
+;FILE button.o
+__asm___8_button_c_078da5ff____REV16 <= USED 0
+__asm___8_button_c_078da5ff____REVSH <= USED 0
+__asm___8_button_c_078da5ff____RRX <= USED 0
+button_int_isr <= USED 0
+;FILE core_cm3_isr.o
+__asm___14_core_cm3_isr_c_5a2a0181____REV16 <= USED 0
+__asm___14_core_cm3_isr_c_5a2a0181____REVSH <= USED 0
+__asm___14_core_cm3_isr_c_5a2a0181____RRX <= USED 0
+;FILE driver_codec.o
+audio_speaker_codec_init <= USED 0
+codec_adc_init <= USED 0
+codec_disable_adc <= USED 0
+codec_disable_dac <= USED 0
+codec_enable_adc <= USED 0
+codec_enable_dac <= USED 0
+codec_init <= USED 0
+codec_set_vol <= USED 0
+speaker_codec_init <= USED 0
+;FILE driver_efuse.o
+__asm___14_driver_efuse_c_9109bb6a____REV16 <= USED 0
+__asm___14_driver_efuse_c_9109bb6a____REVSH <= USED 0
+__asm___14_driver_efuse_c_9109bb6a____RRX <= USED 0
+efuse_get_chip_unique_id_new <= USED 0
+efuse_write <= USED 0
+;FILE driver_exti.o
+__asm___13_driver_exti_c_a116d489____REV16 <= USED 0
+__asm___13_driver_exti_c_a116d489____REVSH <= USED 0
+__asm___13_driver_exti_c_a116d489____RRX <= USED 0
+ext_int_clear <= USED 0
+ext_int_disable <= USED 0
+ext_int_enable <= USED 0
+ext_int_get_src <= USED 0
+ext_int_set_control <= USED 0
+ext_int_set_port_mux <= USED 0
+ext_int_set_type <= USED 0
+;FILE driver_i2s.o
+__asm___12_driver_i2s_c_i2s_reg____REV16 <= USED 0
+__asm___12_driver_i2s_c_i2s_reg____REVSH <= USED 0
+__asm___12_driver_i2s_c_i2s_reg____RRX <= USED 0
+i2s_clear_fifo <= USED 0
+i2s_get_data <= USED 0
+i2s_get_int_status <= USED 0
+i2s_init <= USED 0
+i2s_send_data <= USED 0
+i2s_start <= USED 0
+i2s_stop <= USED 0
+;FILE driver_iic.o
+__asm___12_driver_iic_c_8d61f799____REV16 <= USED 0
+__asm___12_driver_iic_c_8d61f799____REVSH <= USED 0
+__asm___12_driver_iic_c_8d61f799____RRX <= USED 0
+iic0_isr <= USED 0
+iic_init <= USED 0
+iic_read_byte <= USED 0
+iic_read_bytes <= USED 0
+iic_write_byte <= USED 0
+iic_write_bytes <= USED 0
+iic_write_bytes_imp <= USED 0
+;FILE driver_keyscan.o
+keyscan_init <= USED 0
+keyscan_test <= USED 0
+;FILE driver_pmu.o
+__asm___12_driver_pmu_c_62fa0f09____REV16 <= USED 0
+__asm___12_driver_pmu_c_62fa0f09____REVSH <= USED 0
+__asm___12_driver_pmu_c_62fa0f09____RRX <= USED 0
+adc_set_ref_voltage <= USED 0
+pmu_bg_trim <= USED 0
+pmu_codec_power_disable <= USED 0
+pmu_codec_power_enable <= USED 0
+pmu_disable_irq <= USED 0
+pmu_enable_charge <= USED 0
+pmu_get_gpio_port_value <= USED 0
+pmu_get_gpio_value <= USED 0
+pmu_set_aldo_voltage <= USED 0
+pmu_set_gpio_value <= USED 0
+pmu_set_led1_as_pwm <= USED 0
+pmu_set_led1_value <= USED 0
+pmu_set_led2_as_pwm <= USED 0
+pmu_set_lp_clk_src <= USED 0
+pmu_set_pin_dir <= USED 0
+pmu_set_pin_to_CPU <= USED 0
+pmu_set_pin_to_PMU <= USED 0
+pmu_set_port_mux <= USED 0
+;FILE driver_pmu_pwm.o
+__asm___16_driver_pmu_pwm_c_dcc31a5d____REV16 <= USED 0
+__asm___16_driver_pmu_pwm_c_dcc31a5d____REVSH <= USED 0
+__asm___16_driver_pmu_pwm_c_dcc31a5d____RRX <= USED 0
+pmu_pwm_init <= USED 0
+pmu_pwm_set_param <= USED 0
+pmu_pwm_start <= USED 0
+pmu_pwm_stop <= USED 0
+;FILE driver_pmu_qdec.o
+pmu_qdec_autorest_cnt_flag <= USED 0
+pmu_qdec_init <= USED 0
+pmu_qdec_set_debounce_cnt <= USED 0
+pmu_qdec_set_irq_type <= USED 0
+pmu_qdec_set_pin <= USED 0
+pmu_qdec_set_threshold <= USED 0
+;FILE driver_pwm.o
+__asm___12_driver_pwm_c_pwm_ctrl____REV16 <= USED 0
+__asm___12_driver_pwm_c_pwm_ctrl____REVSH <= USED 0
+__asm___12_driver_pwm_c_pwm_ctrl____RRX <= USED 0
+pwm_stop <= USED 0
+;FILE driver_rtc.o
+__asm___12_driver_rtc_c_rtc_init____REV16 <= USED 0
+__asm___12_driver_rtc_c_rtc_init____REVSH <= USED 0
+__asm___12_driver_rtc_c_rtc_init____RRX <= USED 0
+rtc_alarm <= USED 0
+rtc_disalarm <= USED 0
+rtc_get_value <= USED 0
+rtc_init <= USED 0
+;FILE driver_ssp.o
+__asm___12_driver_ssp_c_1de10e88____REV16 <= USED 0
+__asm___12_driver_ssp_c_1de10e88____REVSH <= USED 0
+__asm___12_driver_ssp_c_1de10e88____RRX <= USED 0
+ssp_clear_isr_status <= USED 0
+ssp_cs_ctrl_function <= USED 0
+ssp_disable_interrupt <= USED 0
+ssp_enable_interrupt <= USED 0
+ssp_get_data_ <= USED 0
+ssp_get_isr_status <= USED 0
+ssp_init_ <= USED 0
+ssp_put_data_to_fifo <= USED 0
+ssp_recv_data <= USED 0
+ssp_send_120Bytes <= USED 0
+ssp_send_byte <= USED 0
+ssp_send_bytes <= USED 0
+ssp_send_data <= USED 0
+ssp_send_then_recv <= USED 0
+ssp_wait_send_end <= USED 0
+;FILE driver_timer.o
+__asm___14_driver_timer_c_89f15fa2____REV16 <= USED 0
+__asm___14_driver_timer_c_89f15fa2____REVSH <= USED 0
+__asm___14_driver_timer_c_89f15fa2____RRX <= USED 0
+timer_get_current_value <= USED 0
+timer_get_load_value <= USED 0
+timer_init <= USED 0
+timer_reload <= USED 0
+timer_run <= USED 0
+timer_set_load_value <= USED 0
+timer_stop <= USED 0
+;FILE driver_uart.o
+__asm___13_driver_uart_c_a128b2d1____REV16 <= USED 0
+__asm___13_driver_uart_c_a128b2d1____REVSH <= USED 0
+__asm___13_driver_uart_c_a128b2d1____RRX <= USED 0
+uart_init1 <= USED 0
+;FILE driver_wdt.o
+wdt_feed <= USED 0
+wdt_test <= USED 0
+;FILE entry.o
+__asm___7_entry_c_a06f3641____REV16 <= USED 0
+__asm___7_entry_c_a06f3641____REVSH <= USED 0
+__asm___7_entry_c_a06f3641____RRX <= USED 0
+check_and_set_rand_seed <= USED 0
+get_SDK_compile_date_time <= USED 0
+;FILE flash.o
+__asm___7_flash_c_48468d59____REV16 <= USED 0
+__asm___7_flash_c_48468d59____REVSH <= USED 0
+__asm___7_flash_c_48468d59____RRX <= USED 0
+flash_OTP_erase <= USED 0
+flash_OTP_protect <= USED 0
+flash_OTP_read <= USED 0
+flash_OTP_write <= USED 0
+flash_page_erase <= USED 0
+flash_protect_enable1 <= USED 0
+flash_read_id <= USED 0
+;FILE gap_api.o
+gap_address_set <= USED 0
+gap_bond_manager_add_info <= USED 0
+gap_bond_manager_delete <= USED 0
+gap_bond_manager_delete_all <= USED 0
+gap_bond_manager_get_info <= USED 0
+gap_conn_param_update <= USED 0
+gap_conn_phy_update <= USED 0
+gap_get_conn_phy <= USED 0
+gap_get_encryption_status <= USED 0
+gap_get_latest_bond_idx <= USED 0
+gap_get_latest_conn_parameter <= USED 0
+gap_get_link_features <= USED 0
+gap_get_link_rssi <= USED 0
+gap_get_link_version <= USED 0
+gap_param_update_rsp <= USED 0
+gap_sec_clr_fixed_ltk <= USED 0
+gap_sec_set_fixed_ltk <= USED 0
+gap_security_enc_req <= USED 0
+gap_security_get_bond_req <= USED 0
+gap_security_get_bond_status <= USED 0
+gap_security_pairing_req <= USED 0
+gap_security_req <= USED 0
+gap_security_send_pairing_password <= USED 0
+gap_set_advertising_rsp_data1 <= USED 0
+gap_set_channel_map <= USED 0
+gap_set_mtu <= USED 0
+gap_set_per_adv_data <= USED 0
+gap_set_per_adv_data1 <= USED 0
+gap_set_ral <= USED 0
+gap_set_wl <= USED 0
+gap_start_conn_long_range <= USED 0
+gap_start_conn_whitelist <= USED 0
+gap_start_per_sync <= USED 0
+gap_start_scan <= USED 0
+gap_stop_advertising <= USED 0
+gap_stop_advertising1 <= USED 0
+gap_stop_per_sync <= USED 0
+gap_stop_scan <= USED 0
+;FILE gapc.o
+;FILE gapc_hci.o
+;FILE gapc_sig.o
+;FILE gapc_task.o
+;FILE gapm.o
+gapm_get_id_from_task <= USED 0
+gapm_get_task_from_id <= USED 0
+;FILE gapm_actv.o
+;FILE gapm_addr.o
+;FILE gapm_adv.o
+;FILE gapm_cfg.o
+;FILE gapm_init.o
+;FILE gapm_list.o
+;FILE gapm_per_sync.o
+;FILE gapm_scan.o
+;FILE gapm_smp.o
+;FILE gatt_api.o
+gatt_change_client_uuid <= USED 0
+gatt_change_svc <= USED 0
+gatt_client_direct_register <= USED 0
+gatt_client_enable_ntf_ind <= USED 0
+gatt_client_read <= USED 0
+gatt_client_read_by_uuid <= USED 0
+gatt_client_read_with_handle <= USED 0
+gatt_client_write_req <= USED 0
+gatt_delete_svc <= USED 0
+gatt_discovery_peer_svc <= USED 0
+gatt_get_svc_hdl <= USED 0
+gatt_get_task_no_from_prf_id <= USED 0
+gatt_indication <= USED 0
+gatt_indication_with_handle <= USED 0
+gatt_msg_default <= USED 0
+gatt_notification <= USED 0
+gatt_notification_with_handle <= USED 0
+gatt_svc_changed_req <= USED 0
+;FILE gattc.o
+gattc_get_op_seq_num <= USED 0
+;FILE gattm.o
+;FILE jump_table.o
+__asm___12_jump_table_c_5f817404____REV16 <= USED 0
+__asm___12_jump_table_c_5f817404____REVSH <= USED 0
+__asm___12_jump_table_c_5f817404____RRX <= USED 0
+;FILE l2cc.o
+;FILE l2cc_lecb.o
+;FILE l2cc_pdu.o
+l2cc_dbg_pdu_unpack <= USED 0
+;FILE l2cc_sig.o
+;FILE l2cc_task.o
+;FILE l2cm.o
+;FILE led_fun.o
+__asm___9_led_fun_c_6e6ff7f2____REV16 <= USED 0
+__asm___9_led_fun_c_6e6ff7f2____REVSH <= USED 0
+__asm___9_led_fun_c_6e6ff7f2____RRX <= USED 0
+;FILE m_al_activity.o
+;FILE m_al_adv.o
+;FILE m_al_con.o
+;FILE m_al_djob.o
+;FILE m_al_scan.o
+;FILE m_al_sec.o
+m_al_sec_aes_req <= USED 0
+;FILE m_al_task.o
+m_al_msg_free <= USED 0
+m_al_msg_src_id_get <= USED 0
+;FILE m_al_timer.o
+;FILE m_api.o
+;FILE m_api_msg.o
+;FILE m_bcn.o
+m_bcn_connect_api <= USED 0
+;FILE m_bearer.o
+;FILE m_bearer_adv.o
+;FILE m_bearer_gatt.o
+;FILE m_fnd.o
+;FILE m_fnd_confs.o
+;FILE m_fnd_hlths.o
+;FILE m_fnd_pbrs.o
+__asm___12_m_fnd_pbrs_c_2bc2f39f____REV16 <= USED 0
+__asm___12_m_fnd_pbrs_c_2bc2f39f____REVSH <= USED 0
+__asm___12_m_fnd_pbrs_c_2bc2f39f____RRX <= USED 0
+;FILE m_lay.o
+;FILE m_lay_access.o
+;FILE m_lay_friend.o
+;FILE m_lay_hb.o
+;FILE m_lay_lpn.o
+;FILE m_lay_ltrans.o
+;FILE m_lay_net.o
+;FILE m_lay_proxy.o
+;FILE m_lay_utrans.o
+;FILE m_pbrs_prov_bearer.o
+;FILE m_prov.o
+;FILE m_prov_adv_trans.o
+;FILE m_prov_bearer.o
+m_prov_bearer_connect_api <= USED 0
+;FILE m_tb.o
+;FILE m_tb_buf.o
+m_tb_buf_copy_data_to_mem <= USED 0
+m_tb_buf_tail_reserve <= USED 0
+;FILE m_tb_friend.o
+m_tb_friend_get_nb_lpn_estab <= USED 0
+;FILE m_tb_key.o
+;FILE m_tb_mio.o
+m_tb_mio_addr_list_get <= USED 0
+m_tb_mio_addr_list_stop <= USED 0
+;FILE m_tb_sec.o
+;FILE m_tb_state.o
+m_tb_state_get_hb_feat_upd <= USED 0
+;FILE m_tb_store_wvt.o
+;FILE m_tb_timer.o
+;FILE mesh_api.o
+app_mesh_enable_prf <= USED 0
+mesh_get_node_unicast_addr <= USED 0
+mesh_get_remote_param <= USED 0
+mesh_iv_update <= USED 0
+mesh_load_stored_info <= USED 0
+mesh_model_add_publish_addr <= USED 0
+mesh_model_bind_appkey <= USED 0
+mesh_model_del_group_addr <= USED 0
+mesh_model_sub_group_addr <= USED 0
+mesh_send_compo_data_rsp <= USED 0
+mesh_set_adv_parameter <= USED 0
+mesh_stop_prov_link_timeout_timer <= USED 0
+;FILE mesh_model_msg.o
+RGBtoHSL <= USED 0
+;FILE os_msg_q.o
+os_msg_free <= USED 0
+os_msg_malloc <= USED 0
+os_msg_send <= USED 0
+;FILE os_task.o
+ke_task_delete <= USED 0
+ke_task_saved_update <= USED 0
+os_get_free_task_id_num <= USED 0
+os_task_delete <= USED 0
+os_task_process_saved_msg <= USED 0
+os_user_loop_event_clear <= USED 0
+os_user_loop_event_set <= USED 0
+;FILE os_timer.o
+os_timer_destroy <= USED 0
+;FILE patch.o
+__asm___7_patch_c_487891fc____REV16 <= USED 0
+__asm___7_patch_c_487891fc____REVSH <= USED 0
+__asm___7_patch_c_487891fc____RRX <= USED 0
+;FILE patch_adv_report.o
+;FILE patch_no_md_bit.o
+dbg_log <= USED 0
+gatt_get_tx_buf_nb <= USED 0
+patch_get_con_evt_cnt <= USED 0
+patch_set_event_cnt_target <= USED 0
+;FILE patch_rf.o
+__asm___10_patch_rf_c_e73c1e89____REV16 <= USED 0
+__asm___10_patch_rf_c_e73c1e89____REVSH <= USED 0
+__asm___10_patch_rf_c_e73c1e89____RRX <= USED 0
+gap_set_link_rssi_report <= USED 0
+system_latency_disable <= USED 0
+system_set_conn_sleep_max_during <= USED 0
+;FILE patch_rtos.o
+__asm___12_patch_rtos_c_ea38be2b____REV16 <= USED 0
+__asm___12_patch_rtos_c_ea38be2b____REVSH <= USED 0
+__asm___12_patch_rtos_c_ea38be2b____RRX <= USED 0
+freertos_baseband_restore_done_patch <= USED 0
+;FILE pb_remote_central.o
+;FILE prf.o
+prf_dst_task_get <= USED 0
+prf_get_id_from_task <= USED 0
+;FILE prf_utils.o
+prf_check_svc_char_desc_validity <= USED 0
+prf_check_svc_char_validity <= USED 0
+prf_client_att_info_rsp <= USED 0
+prf_disc_svc_send <= USED 0
+prf_extract_svc_info <= USED 0
+prf_gatt_write <= USED 0
+prf_gatt_write_ntf_ind <= USED 0
+prf_pack_date_time <= USED 0
+prf_read_char_send <= USED 0
+prf_register_atthdl2gatt <= USED 0
+prf_unpack_date_time <= USED 0
+prf_unregister_atthdl2gatt <= USED 0
+;FILE proj_main.o
+__asm___11_proj_main_c_39ca1e57____REV16 <= USED 0
+__asm___11_proj_main_c_39ca1e57____REVSH <= USED 0
+__asm___11_proj_main_c_39ca1e57____RRX <= USED 0
+;FILE rwble_hl.o
+;FILE sha256.o
+sha256_gatt_gen_auth_value <= USED 0
+;FILE sig_mesh_info.o
+;FILE sig_mesh_led.o
+__asm___14_sig_mesh_led_c_a09aec6e____REV16 <= USED 0
+__asm___14_sig_mesh_led_c_a09aec6e____REVSH <= USED 0
+__asm___14_sig_mesh_led_c_a09aec6e____RRX <= USED 0
+app_auto_update_led_state <= USED 0
+app_heartbeat_send <= USED 0
+app_mesh_50Hz_check_enable <= USED 0
+app_mesh_recv_vendor_msg <= USED 0
+app_mesh_send_dev_rst_ind <= USED 0
+app_mesh_send_user_adv_packet <= USED 0
+app_mesh_start_publish_msg_resend <= USED 0
+;FILE simple_gatt_service.o
+;FILE smpc.o
+;FILE smpc_api.o
+;FILE smpc_crypto.o
+;FILE smpc_util.o
+;FILE sys_utils.o
+__asm___11_sys_utils_c_415ab936____REV16 <= USED 0
+__asm___11_sys_utils_c_415ab936____REVSH <= USED 0
+__asm___11_sys_utils_c_415ab936____RRX <= USED 0
+_system_power_off <= USED 0
+aes_decrypt <= USED 0
+ascii_strn2val <= USED 0
+char_to_val <= USED 0
+hex4bit_to_caps_char <= USED 0
+hex4bit_to_char <= USED 0
+hex_arr_to_str <= USED 0
+str_to_hex_arr <= USED 0
+str_to_val <= USED 0
+system_enable_scan <= USED 0
+system_get_curr_time <= USED 0
+system_optimize_power_consumption_set <= USED 0
+system_power_off <= USED 0
+system_prevent_sleep_clear <= USED 0
+system_prevent_sleep_set <= USED 0
+system_set_rf_power <= USED 0
+system_set_tx_power <= USED 0
+system_sleep_enable <= USED 0
+val_to_str <= USED 0
+;FILE user_bond_manage.o
+ble_bond_addr_check_result <= USED 0
+ble_bond_clr_all_info <= USED 0
+ble_bond_clr_info <= USED 0
+ble_bond_get_bond_info <= USED 0
+ble_bond_get_last_bond_idx <= USED 0
+;FILE user_mem.o
+ke_free_user <= USED 0
+ke_get_mem_free <= USED 0
+ke_get_mem_max_usage <= USED 0
+ke_malloc_user <= USED 0
+show_ke_malloc <= USED 0
+show_mem_list <= USED 0
+show_msg_list <= USED 0
+;FILE user_task.o
