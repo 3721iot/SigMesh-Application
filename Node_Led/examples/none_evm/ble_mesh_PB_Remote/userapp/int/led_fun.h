@@ -21,12 +21,22 @@
 #define PWM_FREQUENCE		10000
  #define DUTY_RATE			0.39
 #define PWM_MAX_DUTY		99					//pwm max valtage
-#define TCOLAR_MAX_VAL		200
-#define TCOLAR_MIN_VAL		8 
-#define TCOLAR_ADJUST		5
-#define COLOR_TEMPERA_RATE	0.52
+#define TCOLAR_MIN_VAL		8
+#define TCOLAR_MIDEL_VAL	104
 
+#define COLOR_GREEN_RATE	0.26
+#define COLOR_BLUE_RATE		1.03
 
+#define LIGHTNESS_MIN_VAL	6
+#define LIGHTNESS_RANGE		649
+
+#define POWERON_COUNT_KEY   "PowerTimes"
+
+#ifdef ATOM_SWITCH
+	#define THRESHOLD 		5
+#else
+	#define RHRESHOLD		3
+#endif
 //#define REVER_FLAG	//Ctrol Led Lever Need Revert	
 
 typedef struct{
@@ -36,9 +46,12 @@ typedef struct{
 }LED_CTR;
 
 extern LED_CTR Led_Ctr;
+extern uint8_t poweron_count;
 
 extern void led_pwm_init(void);
 extern void update_led_pwm(uint8_t r, uint8_t g, uint8_t b);
-extern void color_temperature_set(uint16_t tcolar);
+extern void color_temperature_set(uint16_t tcolar, uint16_t brightness);
 
+extern void Bubls_UnconfigNet_Indacate(void);
+extern void Bubls_ConfigNet_Ok_Indacate(void);
 #endif

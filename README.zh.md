@@ -1,11 +1,11 @@
-#3721 Open SigMesh
+#3721 Open Sig Mesh
 
 #### 介绍
 
-Bluetooth Mesh(SigMesh)是Bluetooth SIG组织在2017年7月17日发布的蓝牙Mesh标准，支持创建大规模设备网络,适本地构建自动化并提供多种物联网 (IoT) 解决方案。
+Bluetooth Mesh(Sig Mesh)是Bluetooth SIG组织在2017年7月17日发布的蓝牙Mesh标准，支持创建大规模设备网络,适本地构建自动化并提供多种物联网 (IoT) 解决方案。
 
-此工程为SigMesh应用产品开源集合，从子节点设备，网关，APP全系列开放开源
-为行业社区打造更多的标准SigMesh硬件生态，欢迎大家一起参与进来。
+此工程为Sig Mesh应用产品开源集合，从子节点设备，网关，APP全系列开放开源
+为行业社区打造更多的标准Sig Mesh硬件生态，欢迎大家一起参与进来。
 
 
 此Mesh节点使用富芮坤FR8016HA主控芯片及适配SDK的基础上实现PDV和GATT的Mesh配网方式，可以控制标准设备，如彩灯的开关，颜色及亮度设置。
@@ -22,7 +22,7 @@ Bluetooth Mesh(SigMesh)是Bluetooth SIG组织在2017年7月17日发布的蓝牙M
 1.  [开发环境](Doc/FR8016HA/GettingStarted/README.md)
 2.  [开发入门](Doc/FR8016HA/README.md)
 3.  APP
-4.  WIFI SigMesh 网关
+4.  WIFI Sig Mesh 网关
 
 #### APP
 
@@ -45,8 +45,8 @@ MQTT版
 
 WIFI网关，已实现MQTT和SigMesh模型上行和下行，支持标准MQTT3.1.1。
 
-#### 微信群
-
+#### 加好友进微信群
+<img style="width:200px;height:200px" src="./Doc/image/wx.png"  />
 
 #### 参与贡献
 1.  Fork 本仓库

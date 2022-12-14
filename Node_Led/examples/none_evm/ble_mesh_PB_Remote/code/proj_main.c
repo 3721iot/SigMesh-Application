@@ -39,17 +39,7 @@
 #include "sig_mesh_info.h"
 #include "led_fun.h"
 
-/*
- * MACROS
- */
-
-/*
- * CONSTANTS
- */
-
-/*
- * TYPEDEFS
- */
+#define 	CONFIGNET_LED_PER_TIMER		80
 
 /*
  * GLOBAL VARIABLES
@@ -76,6 +66,8 @@ const struct jump_table_image_t _jump_table_image __attribute__((section("jump_t
     .image_size = 0x30000,      
 };
 
+os_timer_t config_net_led_timer;
+uint8_t config_net_sta = 1;			//0:unconfig net  1:configing net  2:config net ok
 
 /*
  * EXTERN FUNCTIONS
@@ -190,6 +182,16 @@ void proj_ble_gap_evt_func(gap_event_t *event)
             //ali_ota_start_advertising();
             pb_remote_disconnected(event->param.disconnect.conidx, event->param.disconnect.reason);
             
+			#if 0
+			if(event->param.disconnect.reason == 0x13){		//app not prase device data result disconnect 
+				static bool rflag = false;
+				if(rflag) {
+					platform_reset_patch(0);
+				}
+				rflag = true;
+			}
+			#endif
+			
             if((adv_stopped == true)
                 && (slave_link_conidx == event->param.disconnect.conidx)) {
                 slave_link_conidx = 0xff;
@@ -345,6 +347,35 @@ void user_entry_before_ble_init(void)
 	led_pwm_init();
 }
 
+//pmu_set_led2_value(net_led_sta);
+static void ConfigNet_Bulb_Timeout_Handler(void *param)
+{
+	static uint16_t time_record = 0;
+	static uint8_t step = 0;
+	
+	time_record += CONFIGNET_LED_PER_TIMER;
+	if(!step && time_record==CONFIGNET_LED_PER_TIMER) {
+		step = 1;
+		poweron_count++;
+		aos_kv_set(POWERON_COUNT_KEY, &poweron_count, sizeof(poweron_count), 0);
+		co_printf("@-->now times:[%d]\n", poweron_count);
+	} else if (poweron_count && time_record > 3000) {
+		step = 2;
+		poweron_count = 0;
+		aos_kv_set(POWERON_COUNT_KEY, &poweron_count, sizeof(poweron_count), 0);
+		co_printf("@-->timeout 4 minits\n");
+	}
+	if(!config_net_sta) {
+		Bubls_UnconfigNet_Indacate();
+	} else {
+		if(step == 2) {
+			os_timer_stop(&config_net_led_timer);
+			return;
+		}
+	}
+	os_timer_start(&config_net_led_timer, CONFIGNET_LED_PER_TIMER, false);
+}
+
 /*********************************************************************
  * @fn      user_entry_after_ble_init
  *
@@ -357,7 +388,8 @@ void user_entry_before_ble_init(void)
  *
  * @return  None.
  */
-void user_entry_after_ble_init(void)
+extern uint8_t mesh_in_network;
+void user_entry_after_ble_init(void)  
 {
     co_printf("user_entry_after_ble_init[%s]\r\n", __TIME__);
 
@@ -375,14 +407,16 @@ void user_entry_after_ble_init(void)
     //User task initialization, for buttons.
     user_task_init();
     system_sleep_disable();
-
+	aos_kv_init();
 #if 1
-    pmu_set_pin_pull(GPIO_PORT_D,(1<<GPIO_BIT_6),true);
-    pmu_port_wakeup_func_set(GPIO_PD6);
-    button_init(GPIO_PD6);
+    pmu_set_pin_pull(GPIO_PORT_A,(1<<GPIO_BIT_6),true);
+    pmu_port_wakeup_func_set(GPIO_PA6);
+    button_init(GPIO_PA6);
     NVIC_EnableIRQ(PMU_IRQn);
 #endif
-
+	os_timer_init(&config_net_led_timer, ConfigNet_Bulb_Timeout_Handler, NULL);
+	os_timer_start(&config_net_led_timer, CONFIGNET_LED_PER_TIMER, false);
+	
     // set local device name
     gap_set_dev_name((uint8_t *)"FR8016H", strlen("FR8016H"));
     gap_set_cb_func(proj_ble_gap_evt_func);
@@ -393,7 +427,7 @@ void user_entry_after_ble_init(void)
     app_mesh_clear_switch_time();   
 #endif    
 
-    pb_remote_central_init();
-    simple_peripheral_init();		
+    //pb_remote_central_init();
+    //simple_peripheral_init();
 }
 

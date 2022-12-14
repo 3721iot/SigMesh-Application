@@ -11,6 +11,7 @@
  */
 #include <stdint.h>
 #include <stdbool.h>
+#include <string.h>
 
 #include "sha256.h"
 #include "co_printf.h"
@@ -32,6 +33,9 @@
 #include "button.h"
 
 #include "flash_usage_config.h"
+#include "kvmgr.h"
+#include "led_fun.h"
+
 //#include "demo_clock.h"
 //#include "vendor_timer_ctrl.h"
 /*
@@ -42,12 +46,15 @@
 /*
  * CONSTANTS 
  */
-#define ALI_SIG_MESH_VERSION                0
+#define ALI_SIG_MESH_VERSION            0
+#define DEV_TYPE						1			//1:LED		2:SWITCH	
 
 #define SIG_MESH_50HZ_CHECK_IO          GPIO_PD6
 
 uint8_t mesh_key_bdaddr[] = {0xda,0xbb,0x6b,0x07,0xda,0x71};
 uint8_t mesh_key_pid[] = {0x0e, 0x01, 0x00, 0x00};
+//uint8_t mesh_key_bdaddr[] = {0x10,0xbb,0x6b,0x07,0xda,0x71};		////1510:LED	2110:switch
+//uint8_t mesh_key_pid[] = {0x0e, 0x01, 0x00, 0x15};
 uint8_t mesh_key_secret[] = {0x92,0x37,0x41,0x48,0xb5,0x24,0xd9,0xcf,0x7c,0x24,0x04,0x36,0x0b,0xa8,0x91,0xd0};
 
 /*
@@ -446,10 +453,13 @@ void app_mesh_recv_vendor_msg(mesh_model_msg_ind_t const *ind)
  *
  * @return  None.
  */
+extern uint8_t config_net_sta;
+extern os_timer_t config_net_led_timer;
+uint8_t mesh_in_network = 0;
 static void mesh_callback_func(mesh_event_t * event)
 {
     uint8_t tmp_data[16];
-    static uint8_t mesh_in_network = 0;
+    //static uint8_t mesh_in_network = 0;
 
     if(event->type != MESH_EVT_ADV_REPORT) {
         //co_printf("mesh_callback_func: %d.\r\n", event->type);
@@ -457,6 +467,7 @@ static void mesh_callback_func(mesh_event_t * event)
     
     switch(event->type) {
         case MESH_EVT_READY:
+			co_printf("@-->Mesh Start\n");
             mesh_start();
             break;
         case MESH_EVT_STARTED:
@@ -464,17 +475,24 @@ static void mesh_callback_func(mesh_event_t * event)
             //app_mesh_50Hz_check_enable();
             if(mesh_in_network) {
                 mesh_proxy_ctrl(1);
-            }
+            } else {
+				config_net_sta = 0;				
+				Bubls_UnconfigNet_Indacate();
+			}
             break;
         case MESH_EVT_STOPPED:
             //system_sleep_enable();
+			co_printf("@-->Mesh Stop\n");
             break;
         case MESH_EVT_PROXY_CTRL_STATUS:
             co_printf("MESH_EVT_PROXY_CTRL_STATUS: status is 0x%04x.\r\n", event->param.proxy_adv_status);
             break;
         case MESH_EVT_IN_NETWORK:
-            co_printf("device already in network\r\n");
+            co_printf("device in network\r\n");
             mesh_in_network = 1;
+			Bubls_ConfigNet_Ok_Indacate();
+			//os_timer_stop(&config_net_led_timer);
+			//pmu_set_led2_value( 1 );
             break;    
         case MESH_EVT_RESET:
             mesh_in_network = 0;
@@ -487,19 +505,37 @@ static void mesh_callback_func(mesh_event_t * event)
             break;
         case MESH_EVT_PROV_PARAM_REQ:
             //co_printf("=mesh param req=\r\n");
-            //tmp_data[0] = 0xa8;
-            //tmp_data[1] = 0x01;
-			tmp_data[0] = 0xdd;
-            tmp_data[1] = 0xdd;
+            tmp_data[0] = 0xa8;
+            tmp_data[1] = 0x01;
             tmp_data[2] = 0x71;
-            memcpy(&tmp_data[3], mesh_key_pid, 4);
-            memcpy(&tmp_data[7], mesh_key_bdaddr, 6);
+            memcpy(&tmp_data[3], mesh_key_pid, 3);
+			if(DEV_TYPE == 1) {			//LED
+				tmp_data[6] = 0x15;
+				tmp_data[7] = 0x10;
+			} else if(DEV_TYPE == 2) {	//SWITCH
+				tmp_data[6] = 0x21;
+				tmp_data[7] = 0x10;
+			}
+            memcpy(&tmp_data[8], mesh_key_bdaddr, 5);
+			
+			#if 0
+			tmp_data[3] = 0x0e;
+			tmp_data[4] = 0x01;
+			tmp_data[5] = 0x00;
+			tmp_data[6] = 0x15;
+			tmp_data[7] = 0x10;
+			tmp_data[8] = 0xbb;
+			tmp_data[9] = 0x6b;
+			tmp_data[10] = 0x07;
+			tmp_data[11] = 0xda;
+			tmp_data[12] = 0x71;
+			#endif
 #if ALI_SIG_MESH_VERSION == 1
             tmp_data[13] = 0x02;
 #else   // SIG_MESH_VERSION == 1
             tmp_data[13] = 0x00;
 #endif  // SIG_MESH_VERSION == 1
-            tmp_data[14] = 0x00;
+			tmp_data[14] = 0x00;			
             tmp_data[15] = 0x00;
             mesh_send_prov_param_rsp((uint8_t *)tmp_data, 0xd97478b3, 0, 0, 0, 0, 0, 0, 0, 1, 0);
             break;
@@ -545,6 +581,7 @@ static void mesh_callback_func(mesh_event_t * event)
                         co_printf("%02x", data[length-i-1]);
                     }
                     co_printf("\r\n");
+					//os_timer_start(&config_net_led_timer, 500, false);
                 }
             }
             else if(event->param.update_ind->upd_type == MESH_UPD_TYPE_PUBLI_PARAM)
@@ -578,6 +615,9 @@ static void mesh_callback_func(mesh_event_t * event)
                     co_printf("%02x", data[length-i-1]);
                 }
                 co_printf("\r\n");
+				config_net_sta = 1;
+				Bubls_ConfigNet_Ok_Indacate();
+				//pmu_set_led2_value( 1 );
             }
 #if ALI_SIG_MESH_VERSION == 1
             if(event->param.update_ind->upd_type == MESH_UPD_TYPE_APP_KEY_UPDATED) // message type is app key update
@@ -652,11 +692,13 @@ static void mesh_callback_func(mesh_event_t * event)
     }
 }
 
+#if 0
 static void sig_mesh_send_health_sta_timer_handler(void *arg)		//add by my 
 {
 	app_heartbeat_send();
 	printf("@---->Sned Heartbeat\n");
 }
+#endif
 
 /*********************************************************************
  * @fn      app_mesh_led_init
@@ -677,8 +719,13 @@ void app_mesh_led_init(void)
         .pid = 0x0006,
     };
     /* used for debug, reset Node in unprovisioned state at first */
-    flash_erase(MESH_INFO_STORE_ADDR, 0x1000);			//after poweron clean stored node infor 
-    co_list_init(&app_mesh_user_adv_list);
+	int pcount_len = sizeof(poweron_count);
+	aos_kv_get(POWERON_COUNT_KEY, &poweron_count, &pcount_len);
+	co_printf("@-->poweron count:[%d]\n", poweron_count);
+	if(poweron_count >= RHRESHOLD) {
+		flash_erase(MESH_INFO_STORE_ADDR, 0x1000);			//after poweron clean stored node infor 
+    }
+	co_list_init(&app_mesh_user_adv_list);
 
 #if 1
     mac_addr_t set_addr;
@@ -702,7 +749,7 @@ void app_mesh_led_init(void)
     mesh_init(dev_cfg, (void *)mesh_key_bdaddr, MESH_INFO_STORE_ADDR);
     mesh_dev_led_ctrl_init();    
     app_mesh_store_info_timer_init();
-    os_timer_init(&app_mesh_50Hz_check_timer, app_mesh_50Hz_check_timer_handler, NULL);
+    //os_timer_init(&app_mesh_50Hz_check_timer, app_mesh_50Hz_check_timer_handler, NULL);
     os_timer_init(&publish_msg_resend_t,app_mesh_publish_msg_resend,NULL);
 #ifdef SIG_MESH_TIMER
     sys_timer_init();

@@ -1,13 +1,13 @@
-#3721 Open SigMesh
+#3721 Open Sig Mesh
 
 English | [中文文档](./README.zh.md)
 
 #### introduce
 
-Bluetooth Mesh (SigMesh) is a Bluetooth Mesh standard released by the Bluetooth SIG organization on July 17, 2017, which supports the creation of large-scale device networks, appropriately builds automation, and provides a variety of Internet of Things (IoT) solutions.
+Bluetooth Mesh (Sig Mesh) is a Bluetooth Mesh standard released by the Bluetooth SIG organization on July 17, 2017, which supports the creation of large-scale device networks, appropriately builds automation, and provides a variety of Internet of Things (IoT) solutions.
 
 
-This project is an open-source collection of SigMesh application products, from sub-node devices, gateways, and APP full series open-source, to create more standard SigMesh hardware ecology for the industry community, everyone is welcome to participate.
+This project is an open-source collection of Sig Mesh application products, from sub-node devices, gateways, and APP full series open-source, to create more standard Sig Mesh hardware ecology for the industry community, everyone is welcome to participate.
 
 
 This Mesh node uses Furikun FR8016HA main control chip and adapter SDK to realize PDV and GATT Mesh distribution network mode, which can control standard equipment, such as the switch of colored lights, color and brightness settings. Developers of other functions can implement it based on their own business needs. Demo use cases can be programmed directly using common modules, or they can customize PCBA chips for programming.

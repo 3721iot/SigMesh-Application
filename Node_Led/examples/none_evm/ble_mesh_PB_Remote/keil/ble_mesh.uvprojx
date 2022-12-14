@@ -574,6 +574,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>kv</GroupName>
+          <Files>
+            <File>
+              <FileName>kvmgr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\code\kvmgr.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>

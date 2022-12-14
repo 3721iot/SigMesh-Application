@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 5060750: Last Updated: Fri Nov 25 17:21:32 2022
+;#<FEEDBACK># ARM Linker, 5060750: Last Updated: Fri Dec 09 16:30:05 2022
 ;VERSION 0.2
 ;FILE adv_check_mode.o
 __asm___16_adv_check_mode_c_9741a236____REV16 <= USED 0
@@ -49,6 +49,7 @@ app_at_init <= USED 0
 ;FILE app_conn.o
 appm_conn_send_data <= USED 0
 appm_delete_conn_act <= USED 0
+appm_stop_conn <= USED 0
 ;FILE app_mesh_info.o
 ;FILE app_prf.o
 ;FILE app_proj_event.o
@@ -58,6 +59,7 @@ ble_sec_remove_bond <= USED 0
 ble_sec_send_paring_password <= USED 0
 ble_sec_send_security_req <= USED 0
 ble_sec_set_fixed_ltk <= USED 0
+ble_sec_set_pairing_param <= USED 0
 ble_sec_start_bond <= USED 0
 ble_sec_start_enc_req <= USED 0
 bond_info_add <= USED 0
@@ -78,6 +80,7 @@ __asm___23_ble_simple_peripheral_c_4fde123a____REVSH <= USED 0
 __asm___23_ble_simple_peripheral_c_4fde123a____RRX <= USED 0
 app_mesh_start_scan <= USED 0
 param_timer_func <= USED 0
+simple_peripheral_init <= USED 0
 ;FILE button.o
 __asm___8_button_c_078da5ff____REV16 <= USED 0
 __asm___8_button_c_078da5ff____REVSH <= USED 0
@@ -250,6 +253,7 @@ gap_bond_manager_add_info <= USED 0
 gap_bond_manager_delete <= USED 0
 gap_bond_manager_delete_all <= USED 0
 gap_bond_manager_get_info <= USED 0
+gap_bond_manager_init <= USED 0
 gap_conn_param_update <= USED 0
 gap_conn_phy_update <= USED 0
 gap_get_conn_phy <= USED 0
@@ -266,6 +270,7 @@ gap_security_enc_req <= USED 0
 gap_security_get_bond_req <= USED 0
 gap_security_get_bond_status <= USED 0
 gap_security_pairing_req <= USED 0
+gap_security_param_init <= USED 0
 gap_security_req <= USED 0
 gap_security_send_pairing_password <= USED 0
 gap_set_advertising_rsp_data1 <= USED 0
@@ -281,6 +286,7 @@ gap_start_per_sync <= USED 0
 gap_start_scan <= USED 0
 gap_stop_advertising <= USED 0
 gap_stop_advertising1 <= USED 0
+gap_stop_conn <= USED 0
 gap_stop_per_sync <= USED 0
 gap_stop_scan <= USED 0
 ;FILE gapc.o
@@ -300,14 +306,21 @@ gapm_get_task_from_id <= USED 0
 ;FILE gapm_scan.o
 ;FILE gapm_smp.o
 ;FILE gatt_api.o
+gatt_add_client <= USED 0
+gatt_add_client_uuid <= USED 0
+gatt_add_service <= USED 0
 gatt_change_client_uuid <= USED 0
 gatt_change_svc <= USED 0
 gatt_client_direct_register <= USED 0
+gatt_client_enable_ntf <= USED 0
 gatt_client_enable_ntf_ind <= USED 0
 gatt_client_read <= USED 0
 gatt_client_read_by_uuid <= USED 0
 gatt_client_read_with_handle <= USED 0
+gatt_client_write_cmd <= USED 0
+gatt_client_write_cmd_with_handle <= USED 0
 gatt_client_write_req <= USED 0
+gatt_client_write_req_with_handle <= USED 0
 gatt_delete_svc <= USED 0
 gatt_discovery_peer_svc <= USED 0
 gatt_get_svc_hdl <= USED 0
@@ -325,6 +338,15 @@ gattc_get_op_seq_num <= USED 0
 __asm___12_jump_table_c_5f817404____REV16 <= USED 0
 __asm___12_jump_table_c_5f817404____REVSH <= USED 0
 __asm___12_jump_table_c_5f817404____RRX <= USED 0
+;FILE kvmgr.o
+aos_kv_deinit <= USED 0
+aos_kv_del <= USED 0
+aos_kv_del_all <= USED 0
+aos_kv_del_by_prefix <= USED 0
+kv_check_has_val <= USED 0
+kv_default_custom_load <= USED 0
+kv_default_custom_store <= USED 0
+kv_default_factory_load <= USED 0
 ;FILE l2cc.o
 ;FILE l2cc_lecb.o
 ;FILE l2cc_pdu.o
@@ -333,9 +355,9 @@ l2cc_dbg_pdu_unpack <= USED 0
 ;FILE l2cc_task.o
 ;FILE l2cm.o
 ;FILE led_fun.o
-__asm___9_led_fun_c_6e6ff7f2____REV16 <= USED 0
-__asm___9_led_fun_c_6e6ff7f2____REVSH <= USED 0
-__asm___9_led_fun_c_6e6ff7f2____RRX <= USED 0
+__asm___9_led_fun_c_bda5269a____REV16 <= USED 0
+__asm___9_led_fun_c_bda5269a____REVSH <= USED 0
+__asm___9_led_fun_c_bda5269a____RRX <= USED 0
 ;FILE m_al_activity.o
 ;FILE m_al_adv.o
 ;FILE m_al_con.o
@@ -361,6 +383,10 @@ m_bcn_connect_api <= USED 0
 __asm___12_m_fnd_pbrs_c_2bc2f39f____REV16 <= USED 0
 __asm___12_m_fnd_pbrs_c_2bc2f39f____REVSH <= USED 0
 __asm___12_m_fnd_pbrs_c_2bc2f39f____RRX <= USED 0
+m_fnd_pbrs_link_created <= USED 0
+m_fnd_pbrs_link_open_failed <= USED 0
+m_fnd_pbrs_pdu_rx <= USED 0
+m_fnd_pbrs_pdu_sent <= USED 0
 ;FILE m_lay.o
 ;FILE m_lay_access.o
 ;FILE m_lay_friend.o
@@ -371,6 +397,10 @@ __asm___12_m_fnd_pbrs_c_2bc2f39f____RRX <= USED 0
 ;FILE m_lay_proxy.o
 ;FILE m_lay_utrans.o
 ;FILE m_pbrs_prov_bearer.o
+m_pbrs_prov_bearer_gatt_cb_regist <= USED 0
+m_pbrs_prov_bearer_gatt_opened <= USED 0
+m_pbrs_prov_bearer_gatt_rx <= USED 0
+m_pbrs_prov_bearer_gatt_sent <= USED 0
 ;FILE m_prov.o
 ;FILE m_prov_adv_trans.o
 ;FILE m_prov_bearer.o
@@ -402,6 +432,7 @@ mesh_model_del_group_addr <= USED 0
 mesh_model_sub_group_addr <= USED 0
 mesh_send_compo_data_rsp <= USED 0
 mesh_set_adv_parameter <= USED 0
+mesh_stop <= USED 0
 mesh_stop_prov_link_timeout_timer <= USED 0
 ;FILE mesh_model_msg.o
 RGBtoHSL <= USED 0
@@ -442,6 +473,7 @@ __asm___12_patch_rtos_c_ea38be2b____REVSH <= USED 0
 __asm___12_patch_rtos_c_ea38be2b____RRX <= USED 0
 freertos_baseband_restore_done_patch <= USED 0
 ;FILE pb_remote_central.o
+pb_remote_central_init <= USED 0
 ;FILE prf.o
 prf_dst_task_get <= USED 0
 prf_get_id_from_task <= USED 0
@@ -473,11 +505,13 @@ __asm___14_sig_mesh_led_c_a09aec6e____RRX <= USED 0
 app_auto_update_led_state <= USED 0
 app_heartbeat_send <= USED 0
 app_mesh_50Hz_check_enable <= USED 0
+app_mesh_50Hz_check_timer_handler <= USED 0
 app_mesh_recv_vendor_msg <= USED 0
 app_mesh_send_dev_rst_ind <= USED 0
 app_mesh_send_user_adv_packet <= USED 0
 app_mesh_start_publish_msg_resend <= USED 0
 ;FILE simple_gatt_service.o
+sp_gatt_add_service <= USED 0
 ;FILE smpc.o
 ;FILE smpc_api.o
 ;FILE smpc_crypto.o
@@ -510,7 +544,12 @@ ble_bond_addr_check_result <= USED 0
 ble_bond_clr_all_info <= USED 0
 ble_bond_clr_info <= USED 0
 ble_bond_get_bond_info <= USED 0
+ble_bond_get_info <= USED 0
 ble_bond_get_last_bond_idx <= USED 0
+ble_bond_init <= USED 0
+ble_bond_read_info_from_flash <= USED 0
+ble_bond_store_info <= USED 0
+ble_bond_write_info_to_flash <= USED 0
 ;FILE user_mem.o
 ke_free_user <= USED 0
 ke_get_mem_free <= USED 0

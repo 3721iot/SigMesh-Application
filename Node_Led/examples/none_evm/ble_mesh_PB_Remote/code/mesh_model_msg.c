@@ -96,6 +96,12 @@ void mesh_led_on_off_msg_handler(mesh_model_msg_ind_t const *ind)
             
 				gatway_addr = ind->src;
 				node_addr = ind->dst;
+				if(onoff_set->onoff) {		//open
+					update_led_pwm(5, 5, 5);
+				} else {					//close
+					update_led_pwm(0, 0, 0);
+				}
+				
 				//MESH_MODEL_LOG("@---->src_addr[%d] dest_addr:[%d]\n", ind->src, ind->dst);
 			}
             if(ind->opcode != MESH_GEN_ONOFF_SET_UNACK)
@@ -134,7 +140,7 @@ static void mesh_lightness_set_handler(mesh_model_msg_ind_t const *ind)
     MESH_MODEL_LOG("@-->Lightness Set=%x\r\n", lightness_set->level);
     mesh_led_state.lightness = lightness_set->level;
 	
-	color_temperature_set(mesh_led_state.lightness);
+	color_temperature_set(mesh_led_state.ctl_temperature, mesh_led_state.lightness);
     if(ind->opcode == MESH_LIGHTNESS_SET)
     {
         status.current_level = mesh_led_state.lightness;
@@ -455,7 +461,7 @@ static void mesh_temperature_set(mesh_model_msg_ind_t const *ind)
     mesh_led_state.delta_UV = ctl_set->ctl_delta_UV;
     MESH_MODEL_LOG("mesh color temperature set temp=%x UV=%x\r\n",mesh_led_state.ctl_temperature,mesh_led_state.delta_UV); 
     
-	color_temperature_set(mesh_led_state.ctl_temperature);			//set colar temprature
+	color_temperature_set(mesh_led_state.ctl_temperature, mesh_led_state.lightness);			//set colar temprature
 	if(ind->opcode == MESH_TEMPERATURE_SET)
     {
         mesh_temperature_get(ind);

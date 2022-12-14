@@ -49,6 +49,7 @@ static int user_task_func(os_event_t *param)
 				if(button_msg->button_type == BUTTON_WORKING_STATE_LONG_PRESSED ){
 					flash_erase(MESH_INFO_STORE_ADDR, 0x1000);
 					co_printf("@---->Button Long Pressed");
+					platform_reset_patch(0);
 				}
 				#if 0
                 if(button_msg->button_type == BUTTON_SHORT_PRESSED )
