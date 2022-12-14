@@ -1,0 +1,17 @@
+.\objects\sig_mesh_info.o: ..\code\sig_mesh_info.c
+.\objects\sig_mesh_info.o: D:\Soft\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\sig_mesh_info.o: D:\Soft\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\sig_mesh_info.o: D:\Soft\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\sig_mesh_info.o: ..\..\..\..\components\driver\include\driver_flash.h
+.\objects\sig_mesh_info.o: ..\..\..\..\components\modules\os\include\os_timer.h
+.\objects\sig_mesh_info.o: D:\Soft\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\sig_mesh_info.o: ..\..\..\..\components\modules\os\include\os_mem.h
+.\objects\sig_mesh_info.o: ..\..\..\..\components\modules\platform\include\compiler.h
+.\objects\sig_mesh_info.o: ..\..\..\..\components\ble\include\mesh\mesh_api.h
+.\objects\sig_mesh_info.o: D:\Soft\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\sig_mesh_info.o: ..\..\..\..\components\ble\include\gap\gap_api.h
+.\objects\sig_mesh_info.o: ..\..\..\..\components\modules\platform\include\jump_table.h
+.\objects\sig_mesh_info.o: ..\..\..\..\components\modules\common\include\co_math.h
+.\objects\sig_mesh_info.o: D:\Soft\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\sig_mesh_info.o: ..\code\sig_mesh_info.h
+.\objects\sig_mesh_info.o: ..\..\..\..\components\modules\common\include\co_printf.h
